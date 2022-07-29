@@ -5,6 +5,7 @@ admin.initializeApp({
   credential: admin.credential.cert(config.firebase)
 });
 
+  console.log('Conectado a Firebase')
 
 const Database = admin.firestore();
 
