@@ -7,26 +7,24 @@ export const getProductos = async (req, res) => {
 
 export const postProductos = async (req, res) => {
     const {title, description, code, price, thumbnail, stock} = req.body 
-    const elemento = await ProductoDao.newProduct(title, description, code, price, thumbnail, stock)
-    res.json(elemento)
+    const e = await ProductoDao.newProduct(title, description, code, price, thumbnail, stock)
+    res.json(e)
 }
 
 export const getProductoId = async (req, res) => {
     const id = req.params.id
-    console.log('id', id)
-    const elemento = await ProductoDao.getById(id)
-    console.log('elemento', elemento)
-    if(!elemento){return res.status(404).json({error: "Producto no encontrado"})}
-    res.json(elemento)
+    const e = await ProductoDao.getById(id)
+    if(!e){return res.status(404).json({error: "Producto no encontrado"})}
+    res.json(e)
 }
 
 export const putProduct = async (req, res) => {
     const {title, description, code, price, thumbnail, stock} = req.body
     const id = req.params.id
-    const elemento = await ProductoDao.getById(id)
-    if(!elemento){return res.status(404).json({error: "Producto no encontrado"})}
-    const elementChanged = await ProductoDao.update(id,title, description, code, price, thumbnail, stock)
-    res.json(elementChanged)
+    const e = await ProductoDao.getById(id)
+    if(!e){return res.status(404).json({error: "Producto no encontrado"})}
+    const eModified = await ProductoDao.update(id,title, description, code, price, thumbnail, stock)
+    res.json(eModified)
     
 }
 
