@@ -6,11 +6,11 @@ admin.initializeApp({
 });
 
 
-const db = admin.firestore();
+const Database = admin.firestore();
 
 class ContenedorFirebase {
     constructor(nombrecollection) {
-      this.collection = db.collection(nombrecollection);
+      this.collection = Database.collection(nombrecollection);
     }
   
     async getById(id) {
