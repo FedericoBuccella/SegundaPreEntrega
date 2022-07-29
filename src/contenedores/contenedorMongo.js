@@ -1,13 +1,9 @@
-import { promises as fs } from 'fs';
 import config from '../config.js';
 import mongoose from 'mongoose';
 
-await mongoose.connect(config.mongodb.connectionString, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
+await mongoose.connect(config.mongodb.connectionString);
 
-  console.log('Conexion establecida con la DBMongo')
+  console.log('Conexion establecida con Mongoose')
 
 export default class ContenedorMongo {
     constructor(nameCollection, schema) {
